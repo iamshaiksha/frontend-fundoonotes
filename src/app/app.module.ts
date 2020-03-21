@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService } from './Service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
+import { HttpService } from './Service/http.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -24,6 +27,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
+    ForgetpasswordComponent,
     
     
   ],
@@ -38,11 +42,12 @@ import {  ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
     
     
   ],
-  providers: [UserService],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

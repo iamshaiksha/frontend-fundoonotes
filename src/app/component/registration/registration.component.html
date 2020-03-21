@@ -1,61 +1,68 @@
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<div style="text-align: center">
-    <h1>{{message}}</h1>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form>
-                <fieldset>
-                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
-                                required *</small></span></legend>
-
-                    <div class="form-group">
-                        <label for="Email"><span class="req">* </span> Email: <small>This will be your login user
-                                name</small> </label>
-                        <input required type="text" [(ngModel)]="user.email" name="email" id="email"
-                            class="form-control phone" maxlength="28" placeholder="Enter your fullname..." />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="is_verified"><span class="req">* </span> Is_verified: </label>
-                        <input class="form-control" type="text" [(ngModel)]="user.is_verified" name="is_verified"  required
-                            placeholder="Enter value" />
-                        <div id="errFirst"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mobileNumber"><span class="req">* </span> MobileNumber: </label>
-                        <input class="form-control" type="text" [(ngModel)]="user.mobile_number" name="mobile_number" id="txt"
-                            placeholder="Enter mobile number" required />
-                        <div id="errLast"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name"><span class="req">* </span> Name: </label>
-                        <input class="form-control" required type="text" [(ngModel)]="user.name" name="name"
-                            id="email" placeholder="Enter name" />
-                        <div class="status" id="status"></div>
-                    </div>
-                    <div class="form-group">
-                      <label for="password"><span class="req">* </span> Password: </label>
-                      <input class="form-control" required type="text" [(ngModel)]="user.password" name="password"
-                          id="email" placeholder="Enter password" />
-                      <div class="status" id="status"></div>
-                  </div>
-                    <!-- <div class="form-group">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerNow()">
-                    </div> -->
-                    <button class="btn-success" (click)="registerNow()">Register</button>
-                </fieldset>
-            </form><!-- ends register form -->
-            <!-- second for to fiter user-->
-        </div><!-- ends col-6 -->
-
+<div>
+    <div>
+      <mat-card class="matcard"  layout="row" layout-align="center center">
+        <div class="login-box-header" layout="row" layout-align="center center">
+            
+        </div>
+        <mat-card-title style="text-align: center">
+          <h1 >
+            Fundoo
+          </h1>
+        </mat-card-title>
+        <mat-card-subtitle style="text-align: center">
+          <h2>
+            Registration
+          </h2>
+        </mat-card-subtitle>
+        <div>
+              <mat-form-field appearance="outline" class="input">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="Enter your Name" name="name" [(ngModel)]="user.name"
+              required>
+            
+            <mat-icon matSuffix>Name</mat-icon>
+            <mat-hint>Enter Name</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Enter your email" name="email" [(ngModel)]="user.email"
+              required>
+            
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>Email</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>mobile</mat-label>
+            <span matPrefix> +91&nbsp;</span>
+            <input type="text" matInput placeholder="Enter your password" [(ngModel)]="user.mobileNumber"
+            name="mobileNumber">
+             
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <mat-hint>mobile</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter your password" name="password"
+              [(ngModel)]="user.password" required>
+            
+            
+            <mat-hint>Password</mat-hint>
+          </mat-form-field>
+        </div>
+       
+        <div>
+          <button mat-raised-button color="accent" style="margin-top: 30px" (click)="registerNow()"
+          
+            class="button">Register</button>
+        </div>
+      </mat-card>
     </div>
-</div>
+  
+  
+  </div>

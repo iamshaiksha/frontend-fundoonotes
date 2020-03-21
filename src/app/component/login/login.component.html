@@ -1,18 +1,40 @@
-<div class="backborder">
-    <h1>Login form</h1>
-    <br>
-    <mat-form-field appearance="outline" class="input">
-          <mat-label>EmailorPhone</mat-label>
-            <input type="text" matInput placeholder="Enter your Name" required>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="input">
-      <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Enter your Name" required> 
-        </mat-form-field>
+
+  <mat-card class="login">
+    <mat-card-title class="titel">
+      <h1>Fundoo</h1>
+    </mat-card-title>
+    <mat-card-subtitle class="titel">
+      <h1 style="margin-top: 70px;margin-left: 37px">Login</h1>
+    </mat-card-subtitle>
+    <div>
+      <mat-form-field appearance="outline" class="input-style">
+        <mat-label>Email</mat-label>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <input type="email" matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="login.email"
+          required>
+        <!-- <mat-icon matSuffix>email</mat-icon> -->
+        <mat-hint>Email</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="input-style">
+        <mat-label>Password</mat-label>
+        <mat-error *ngIf="password.invalid ">{{getErrorPassword()}}</mat-error>
+        <input type="password" matInput placeholder="Enter your password" 
+          [formControl]="password" [(ngModel)]="login.password" required>
+        
+        <mat-hint>Password</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" class="button" (click)="onlogin()"
+         >Login</button>
+      <button mat-raised-button color="primary" style="margin-left: 173px" routerLink="/register"
+        class="button">Register</button>
+    </div>
+    <div>
       <nav class="forget">
-    <a routerLink="/registration" routerLinkActive="active">registration</a>
-  </nav>
-</div>
-<div class="backborder">
-<button mat-button>SignIn</button>
-</div>
+        <a routerLink="/forgotPassword" routerLinkActive="active">ForgetPassword...?</a>
+      </nav>
+    </div>
+  </mat-card>

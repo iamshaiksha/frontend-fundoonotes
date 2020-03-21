@@ -1,19 +1,12 @@
 export class User{
+  name:string;
     email:string;
-    is_verified:string;
-    mobile_number:number;
-    name:string;
-     password:string;
-    constructor(
-         email:string,
-        is_verified:string,
-        mobile_number:number,
-        name:string,
-         password:string){
-           this.email=email;
-           this.is_verified=is_verified;
-           this.mobile_number=mobile_number;
-           this.name=name;
-           this.password=password;  
+    mobileNumber:number;
+    password:string;
+    constructor(name:string,email:string,mobileNumber:number,password:string){
+          this.email=email;
+          this.mobileNumber=mobileNumber;
+          this.name=name;
+          this.password=password;  
          }
 }

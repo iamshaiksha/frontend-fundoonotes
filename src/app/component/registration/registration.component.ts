@@ -11,7 +11,7 @@ import { UserService } from 'src/app/Service/user.service';
 export class RegistrationComponent implements OnInit {
 
 
-user:User=new User("","",0,"","");
+user:User=new User("","",0,"");
 public message:any;
   constructor(public service:UserService) { }
 

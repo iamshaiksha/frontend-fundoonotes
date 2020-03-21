@@ -1,24 +1,32 @@
-.backborder{
-    text-align:center;
-   font-size: revert;
-   margin: -98px;
-   margin-left: 409px;
-   border-radius: 21px;
-   background-color: whitesmoke;
-   margin-right: 340px;
-   padding-bottom: 53px;
-   margin-top: 73px;
-   }
-   .matcard{
-       height: 700px;
-       width: 400px;
-       margin-left: 400px;
-       background-color:darkgray;
-   }
-   .input{
-       width: 306px;
-   }
-   .forget{
-       margin-left: 182px;   
-       margin-top: 14px;
-     }
+.login {
+    margin-left: 430px;
+    width: 450px;
+    height: 550px;
+    margin-top: 190px;
+    background-color:darkgray;
+  }
+ 
+  .titel{
+    width: 20px;
+    height: 20px;
+    margin-left: 30%;
+    gap: 20px;
+    color-adjust: gray;
+    margin-top: 25px;
+  }
+  .input-style{
+    margin-left: 50px;
+    height: 100px;
+    width: 350px;
+    margin-top: 20px;
+  }
+.button{
+  height: 45px;
+  width: 92px;
+  margin-left: 50px;
+}
+.forget{
+  margin-left:144px;
+  margin-top: 72px;
+
+}

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUstLabel:"https://localhost:8080/lable/",
+  baseUrlNote:"https://localhost:8080/note/",
+  baseUrl:"http://localhost:8080/user/"
 };
 
 /*
