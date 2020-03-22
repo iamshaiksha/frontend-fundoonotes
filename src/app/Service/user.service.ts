@@ -1,3 +1,7 @@
+
+
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../model/User';
@@ -7,6 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  
   baseUrl=environment.baseUrl;
 
   constructor(private http:HttpClient) {    }
@@ -18,6 +23,10 @@ export class UserService {
     
   }
   
-    }
 
+  public putRequestForget(url,data:any){
+    const newLocal = this.baseUrl;
+    return this.http.post(newLocal + url,data);
+  }
 
+  }

@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  baseUstLabel:"https://localhost:8080/lable/",
-  baseUrlNote:"https://localhost:8080/note/",
   baseUrl:"http://localhost:8080/user/"
 };
 
