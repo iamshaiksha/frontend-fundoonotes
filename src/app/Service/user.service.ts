@@ -6,11 +6,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../model/User';
 import { environment } from 'src/environments/environment';
+import { Login } from '../model/login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  postRequest(arg0: string, login: any) {
+    throw new Error("Method not implemented.");
+  }
   
   baseUrl=environment.baseUrl;
 
@@ -26,7 +30,7 @@ export class UserService {
 
   public putRequestForget(url,data:any){
     const newLocal = this.baseUrl;
-    return this.http.post(newLocal + url,data);
+    return this.http.post("http://localhost:8080/user/forgetPassword/"+url,data);
   }
 
   }

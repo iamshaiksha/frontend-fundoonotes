@@ -32,13 +32,14 @@ email = new FormControl(this.forget.email, [Validators.required, Validators.patt
   forgetNow()
   {
       console.log(this.email);
-      this.userservice.putRequestForget("forgetPassword?emailId=" + this.forget.email, this.forget ).subscribe(
+      this.userservice.putRequestForget( this.forget.email, this.forget ).subscribe(
         (response: any) => {
 
-          if (response.statusCode === 200) {
+          if (response !==null) {
             console.log(response);
+            console.log("check your mail")
             this.snackBar.open(
-              "Link sent", "undo",
+              "Link sent successfully to mail", "undo",
               { duration: 2500 }
             )
           } else {
