@@ -1,0 +1,33 @@
+
+ <div fxLayout="row" fxLayoutAlign="center center" >
+   <div fxLayout="row wrap" fxFlex="80" fxLayoutGap="40px" fxLayoutAlign="center center">
+   <div *ngFor="let note of notes" value= "note.noteId ">
+   <div  *ngIf="note.isTrashed==0">
+         <mat-card [ngStyle]="{'background-color':note.color}" class="cards" >
+            <form>
+               <!-- ------------(App-pin)------------ -->
+               <app-pin [noteInfo]=note></app-pin>
+               <div class="notearea" >
+                  <div>
+                     {{note.title}}
+                  </div>
+                  <br>
+                  <div>
+                     {{note.description}}
+                  </div>
+               </div>
+               <!--------------(App-addlabel)------------ -->
+               <app-addlabel [labelInfo]=note></app-addlabel>
+               <div class=show>
+               <!--------------(App-icons)------------ ----->
+                  <app-icon [noteInfo]=note></app-icon>
+               </div>
+            </form>
+         </mat-card>
+      </div>
+   </div>
+</div>
+</div>
+
+
+

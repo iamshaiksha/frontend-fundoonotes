@@ -1,0 +1,27 @@
+.cards{
+    /* margin-top: 10px; */
+    margin: 40px;
+    border-radius: 14px;
+    margin-left: -7px;
+    width: 260px;
+    padding-bottom: 38px;
+}
+.show{
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+}
+.textarea1:empty:before
+{
+    content: attr(data-text);
+    opacity: 0.5;
+    font-size: 14px;
+    width:60px;
+    height:10px;
+}
+.iconBackborder{
+    margin-top: -57px;
+}
+
+.allnotes{
+    width: 20px;
+}
