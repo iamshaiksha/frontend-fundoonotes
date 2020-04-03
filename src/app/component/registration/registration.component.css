@@ -34,7 +34,7 @@
   
   } */
   .matcard{
-    margin-left: 300px;
+    margin-top: 70px;
     width: 500px;
     height: 560px;
     /* margin-top: 190px; */
@@ -43,7 +43,7 @@
     background-color:rgb(231, 241, 169);
   }
  
-  .titel{
+  .subtitle{
     width: 500px;
     height: 20px;
     margin-left: 30%;
@@ -52,7 +52,7 @@
     color-adjust: gray;
     margin-top: 25px;
   }
-  .input-style{
+  .formfield{
     margin-left: 50px;
     height: 85px;
     width: 350px;

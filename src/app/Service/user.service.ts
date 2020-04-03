@@ -12,25 +12,33 @@ import { Login } from '../model/login';
   providedIn: 'root'
 })
 export class UserService {
+  /**
+   * 
+   * @param arg0 
+   * @param login 
+   */
   postRequest(arg0: string, login: any) {
     throw new Error("Method not implemented.");
   }
-  
-  baseUrl=environment.baseUrl;
 
-  constructor(private http:HttpClient) {    }
+  baseUrl = environment.baseUrl;
 
-  public doRegistration(user:any)
-  {
-    console.log("checking in service"+user)
-    return this.http.post("http://localhost:8080/user/Registration",user,{responseType:'text' as 'json'});
-    
+  constructor(private http: HttpClient) { }
+  /**
+   * 
+   * @param user 
+   * 
+   */
+  public doRegistration(user: any) {
+    console.log("checking in service" + user)
+    return this.http.post("http://localhost:8080/user/Registration", user, { responseType: 'text' as 'json' });
+
   }
-  
 
-  public putRequestForget(url,data:any){
+
+  public putRequestForget(url, data: any) {
     const newLocal = this.baseUrl;
-    return this.http.post("http://localhost:8080/user/forgetPassword/"+url,data);
+    return this.http.post("http://localhost:8080/user/forgetPassword/" + url, data);
   }
 
-  }
+}

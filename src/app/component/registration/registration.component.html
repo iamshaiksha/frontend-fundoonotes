@@ -1,56 +1,60 @@
- 
+<div fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="matcard">
-    <mat-card-title class="titel">
+    <!-- ---------------(App name)------------- -->
+    <mat-card-title class="subtitle">
       <h1>Fundoonotes</h1>
     </mat-card-title>
-    <mat-card-subtitle class="titel">
+    <!-- -----------------(Main-title)------------------ -->
+    <mat-card-subtitle class="subtitle">
       <h1 style="margin-top: 30px;">Registration</h1>
     </mat-card-subtitle>
+    <!-- ----------------------(name)----------------------------- -->
     <div>
-      <mat-form-field appearance="outline" class="input-style">
+      <mat-form-field appearance="outline" class="formfield">
         <mat-label>Name</mat-label>
         <mat-error *ngIf="name.invalid"> {{getErrorName()}}</mat-error>
-        <input type="name" matInput placeholder="Enter your name" [formControl]="name" [(ngModel)]="user.name"
-          required>
-         <mat-icon matSuffix>Name</mat-icon> 
+        <input type="name" matInput placeholder="Enter your name" [formControl]="name" [(ngModel)]="user.name" required>
+        <mat-icon matSuffix>person_outline</mat-icon>
+        <!-- <mat-icon >Name</mat-icon>  -->
         <mat-hint>Name</mat-hint>
       </mat-form-field>
     </div>
+    <!-- ---------------------(email)--------------------------------- -->
     <div>
-      <mat-form-field appearance="outline" class="input-style">
+      <mat-form-field appearance="outline" class="formfield">
         <mat-label>Email</mat-label>
-        <mat-error *ngIf="email.invalid">  {{getErrorEmail()}}</mat-error>
-        <input type="email" matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="user.email"
-          required>
-         <mat-icon matSuffix>Email</mat-icon> 
+        <mat-error *ngIf="email.invalid"> {{getErrorEmail()}}</mat-error>
+        <input type="email" matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="user.email" required>
+        <mat-icon matSuffix> mail_outline</mat-icon>
         <mat-hint>Email</mat-hint>
       </mat-form-field>
     </div>
+    <!-- -------------------------(password)-------------------------- -->
     <div>
-      <mat-form-field appearance="outline" class="input-style">
+      <mat-form-field appearance="outline" class="formfield">
         <mat-label>Password</mat-label>
         <mat-error *ngIf="password.invalid ">{{getErrorPassword()}}</mat-error>
-        <input type="password" matInput placeholder="Enter your password" 
-          [formControl]="password" [(ngModel)]="user.password" required>
-        
+        <input type="password" matInput placeholder="Enter your password" [formControl]="password" [(ngModel)]="user.password" required>
+        <!-- <mat-icon >P</mat-icon>  -->
+        <mat-icon matSuffix>no_encryption</mat-icon>
         <mat-hint>Password</mat-hint>
       </mat-form-field>
     </div>
+    <!-- -------------------------(mobilenumber)----------------------------- -->
     <div>
-      <mat-form-field appearance="outline" class="input-style">
+      <mat-form-field appearance="outline" class="formfield">
         <mat-label>MobileNumber</mat-label>
         <mat-error *ngIf="mobileNumber.invalid ">{{getmobileNumber()}}</mat-error>
-        <input type="text" matInput placeholder="Enter your mobileNumber" 
-          [formControl]="mobileNumber" [(ngModel)]="user.mobileNumber" required>
+        <input type="text" matInput placeholder="Enter your mobileNumber" [formControl]="mobileNumber" [(ngModel)]="user.mobileNumber" required>
         <mat-hint>mobileNumber</mat-hint>
-       
+        <mat-icon matSuffix> phone</mat-icon>
       </mat-form-field>
     </div>
+    <!-- ----------------------------(buttons)------------------------------ -->
     <div>
-      <button mat-raised-button color="primary" class="button" (click)="registerNow()"
-         >Register</button>
+      <button mat-raised-button color="primary" class="button" (click)="registerNow()">Register</button>
       <button mat-raised-button color="primary" style="margin-left: 173px" routerLink="/login"
         class="button">Login</button>
     </div>
-    
   </mat-card>
+</div>

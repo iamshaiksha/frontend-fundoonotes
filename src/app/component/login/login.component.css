@@ -1,20 +1,19 @@
-.matcard{
-    margin-left: 330px;
+.card{
     width: 500px;
     height: 500px;
-    /* margin-top: 50px; */
-    background-color:darkgray;
+    margin-top: 100px;
+    background-color:rgb(214, 247, 252);
   }
  
-  .titel{
+  .subtitle{
     width: 20px;
     height: 20px;
     margin-left: 30%;
     gap: 20px;
-    color-adjust: gray;
+    color-adjust: rgb(245, 113, 5);
     margin-top: 25px;
   }
-  .input-style{
+  .formfield{
     margin-left: 50px;
     height: 100px;
     width: 350px;
@@ -22,11 +21,10 @@
   }
 .button{
   height: 45px;
-  width: 115px;
+  width: 120px;
   margin-left: 50px;
 }
-.forget{
-  margin-left:144px;
+.forgetbutton{
+  margin-left:150px;
   margin-top: 50px;
-
 }

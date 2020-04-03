@@ -12,46 +12,63 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./forgetpassword.component.css']
 })
 export class ForgetpasswordComponent implements OnInit {
-forget:ForgetPassword=new ForgetPassword();
+  /**
+   * forgetpassword object consistes of email
+   */
+  forget: ForgetPassword = new ForgetPassword();
 
-email = new FormControl(this.forget.email, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]);
+  email = new FormControl(this.forget.email, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]);
+  /**
+   * 
+   * @param snackBar 
+   * @param userservice 
+   * @param formBuilder 
+   * @param route 
+   * @param router 
+   */
   constructor(
     private snackBar: MatSnackBar, private userservice: UserService,
     public formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
-  emailValidation() 
-  {
-    return this.email.hasError('required')? 'enter a value' :
-    this.email.hasError('email')? 'invalid email':'';
+  /**
+   * Email validation 
+   */
+  emailValidation() {
+    return this.email.hasError('required') ? 'enter a value' :
+      this.email.hasError('email') ? 'invalid email' : '';
   }
-  forgetNow()
-  {
-      console.log(this.email);
-      this.userservice.putRequestForget( this.forget.email, this.forget ).subscribe(
-        (response: any) => {
+  /**
+   * when we click on this button email will send to change password  
+   */
+  onClick() {
+    console.log("######################")
+    console.log(this.email);
+    this.userservice.putRequestForget(this.forget.email, this.forget).subscribe(
+      (response: any) => {
 
-          if (response !==null) {
-            console.log(response);
-            console.log("check your mail")
-            this.snackBar.open(
-              "Link sent successfully to mail", "undo",
-              { duration: 2500 }
-            )
-          } else {
-            console.log(response);
-            this.snackBar.open(
-              "Failed",
-              "undo",
-              { duration: 2500 }
-            )
-          }
+        if (response !== null) {
+          console.log(response);
+          console.log("check your mail")
+          this.snackBar.open(
+            "Link sent successfully to mail", "undo",
+            { duration: 2500 }
+          )
+        } else {
+          console.log(response);
+          this.snackBar.open(
+            "Sending mail Failed","undo",
+            { duration: 2500 }
+          )
         }
-      )
-    }
-  
+      }
+    )
   }
+
+}

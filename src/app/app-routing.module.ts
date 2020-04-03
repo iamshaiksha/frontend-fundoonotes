@@ -4,6 +4,11 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { LoginComponent } from './component/Login/Login.component';
 import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { SetPasswordComponent } from './component/set-password/set-password.component';
+import { NoteComponent } from './component/note/note.component';
+// import { EditlabelComponent } from './component/editlabel/editlabel.component';
+import { TrashComponent } from './component/trash/trash.component';
+import { ArchieveComponent } from './component/archieve/archieve.component';
 
 
 const routes: Routes = [
@@ -16,9 +21,7 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
-    
   },
-
   {
     path:'register',
     component:RegistrationComponent
@@ -30,8 +33,34 @@ const routes: Routes = [
   {
     path:'dashboard',
     component:DashboardComponent
+  },
+  {
+    path:'resetPassword',
+    component:SetPasswordComponent
+  },
+  {
+    path:"notes",
+    component:NoteComponent
+  },
+  {
+    path:"dashboard",
+    component:DashboardComponent,children:
+    [ {
+      path:'notes',
+      component:NoteComponent
+    },
+    {
+      path:"trash",
+      component:TrashComponent
+    },
+    {
+      path:"archive",
+      component:ArchieveComponent
+    },
+    
+    
+    ]
   }
- 
 ];
 
 @NgModule({

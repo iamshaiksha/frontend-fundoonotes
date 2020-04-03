@@ -1,41 +1,47 @@
-
-  <mat-card class="matcard">
-    <mat-card-title class="titel">
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="card">
+    <!-- ---------------(App name)------------- -->
+    <mat-card-title class="subtitle">
       <h1>FundooNotes</h1>
     </mat-card-title>
-    <mat-card-subtitle class="titel">
-      <h1 style="margin-top: 30px;margin-left: 20px">Login</h1>
+    <!-- -----------------(Main-title)------------------ -->
+    <mat-card-subtitle class="subtitle">
+      <h1 style="margin-top:30px;margin-left: 20px">Login</h1>
     </mat-card-subtitle>
     <div>
-      <mat-form-field appearance="outline" class="input-style">
-        <mat-label>Email</mat-label>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        <input type="email" matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="login.email"
-          required>
+      <!-- ---------------------(email)--------------------------------- -->
+      <mat-form-field appearance="outline" class="formfield">
+        <mat-label >Email</mat-label>
+        <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
+        <input type="email" matInput placeholder="Enter your email" [(ngModel)]="login.email" [formControl]="email"  required>
         <!-- <mat-icon matSuffix>email</mat-icon> -->
+        <mat-icon matSuffix> mail_outline</mat-icon>
         <mat-hint>Email</mat-hint>
       </mat-form-field>
     </div>
+    <!---------------------------(password)-------------------------- -->
     <div>
-      <mat-form-field appearance="outline" class="input-style">
-        <mat-label>Password</mat-label>
+      <mat-form-field appearance="outline" class="formfield">
+        <mat-label >Password</mat-label>
         <mat-error *ngIf="password.invalid ">{{getErrorPassword()}}</mat-error>
-        <input type="password" matInput placeholder="Enter your password" 
-          [formControl]="password" [(ngModel)]="login.password" required>
-        
+        <input type="password" matInput placeholder="Enter your password"  [(ngModel)]="login.password"[formControl]="password"  required>
+        <mat-icon matSuffix>no_encryption</mat-icon>
         <mat-hint>Password</mat-hint>
       </mat-form-field>
     </div>
+    <!-- ----------------------------(login button)------------------------- -->
     <div>
-      <button mat-raised-button color="primary" class="button" (click)="onlogin()"
-         >Login</button>
-      <button mat-raised-button color="primary" style="margin-left: 173px" routerLink="/register"
+      <button mat-stroked-button color="success" class="button" (click)="onlogin()">Login</button>
+      <!-- ------------------------(Register button)-------------------- -->
+      <button mat-stroked-button color="accent" style="margin-left: 160px" routerLink="/register"
         class="button">Register</button>
     </div>
+    <!-- -----------------------------(forgetpassword button)----------------------------- -->
     <div>
-      <nav class="forget">
-        <button mat-raised-button color="primary" style="margin-left: 50px" routerLink="/forgetPassword"
-        class="button">ForgetPassword</button>
+      <nav class="forgetbutton">
+        <button mat-stroked-button color="primary" style="margin-left: 50px" routerLink="/forgetPassword"
+          class="button">ForgetPassword</button>
       </nav>
     </div>
   </mat-card>
+</div>
