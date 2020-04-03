@@ -1,0 +1,52 @@
+<div class=card fxLayout=layout-wrap>
+  <!---------------------(Reaminder)-------------------------->
+  <button mat-icon-button>
+    <mat-icon matTooltip="RemindMe">add_alert</mat-icon>
+  </button>
+  <!---------------------(Collaborator)-------------------------->
+  <button class=trash mat-icon-button>
+    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+  </button>
+  <!---------------------(Colorlens)-------------------------->
+  <button mat-icon-button [matMenuTriggerFor]="menu1">
+    <mat-icon matTooltip="color_lens">color_lens</mat-icon>
+  </button>
+  <!---------------------(colors in colorlens)-------------------------->
+  <mat-menu #menu1="matMenu">
+    <div *ngFor="let colors of  arrayColor" fxLayout="row">
+      <div *ngFor="let color of colors">
+        <button [ngStyle]="{'background-color':color.name}" mat-mini-fab (click)=setColor(color.name)></button>
+      </div>
+    </div>
+  </mat-menu>
+  <!---------------------(Trash)-------------------------->
+  <button class=trash mat-icon-button>
+    <mat-icon matTooltip="AddImage">insert_photo</mat-icon>
+  </button>
+  <!---------------------(archieve)-------------------------->
+  <button class=trash mat-icon-button (click)="archive()">
+    <mat-icon matTooltip="archieve">archive</mat-icon>
+  </button>
+  <!---------------------(more_vert)-------------------------->
+  <button class=trash mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon matTooltip="more_vert">more</mat-icon>
+  </button>
+</div>
+<!---------------------(subparts)-------------------------->
+<div>
+  <mat-menu #menu="matMenu">
+          <!---------------(Deletenote)--------------->
+    <div class=button>
+      <button mat-button color="Basic" (click)="onDelete()">Delete note</button>
+    </div>
+          <!---------------(Add labels)--------------->
+    <div class=button>
+      <button mat-menu-item color="warn" [matMenuTriggerFor]="subMenu">Add label</button>
+    </div>
+  </mat-menu>
+</div>
+<mat-menu #subMenu="matMenu">
+  <div *ngFor="let labels of label" fxLayoutGap="15px" fxLayout="column">
+    <mat-checkbox (click)="addlabel(labels)">{{labels.name}}</mat-checkbox></div>
+</mat-menu>
+<div>
