@@ -1,0 +1,163 @@
+<!-- <mat-card >
+    <div fxLayout="row" fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="end end">
+      <span>Welcome to dashboard</span> -->
+    <!-- </div>
+    <div>
+      </div> -->
+    <!-- <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+      <mat-drawer-content>Main content</mat-drawer-content>
+    </mat-drawer-container> -->
+  <!-- </mat-card> -->
+<div class="backcontainer">
+  <div  fxLayout="row" fxLayoutAlign="start center">
+      <mat-toolbar>
+        <!-- ----------------(MainMenu)-------------------------- -->
+      <mat-toolbar-row> 
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon matTooltip="Main menu">menu</mat-icon>
+        </button>
+        <span>
+          <mat-label style="font-family: 'Times New Roman', Times, serif; padding-left: 5px;">MAIN MENU</mat-label>
+        </span>
+        <div>&nbsp;&nbsp;
+          <img style=" margin-left: 3px;" src="../../../assets/keep.png">
+          </div>
+          &nbsp;&nbsp;&nbsp;
+          <div class="sansserif">
+          <h1 text>Keep</h1>
+          </div>
+        <!-----------------------(searchbar)-------------------------->
+        <div class="searchBar" fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button class="search-icon">
+          <mat-icon>search</mat-icon>
+        </button>
+        <!-- ------------------------(refresh)-------------------------- -->
+        <input class="searchInput" placeholder="Search" >
+        <button mat-icon-button class="cancel">
+          <mat-icon matTooltip="refresh">clear</mat-icon>
+        </button>
+      </div>
+      <!------------------------(refresh-icon)------------------------------->
+      <div >
+        <button mat-icon-button class="refresh">
+          <mat-icon matTooltip="refresh">refresh</mat-icon>
+        </button>
+        <!------------------------(grid view-icon)------------------------------->
+        <button mat-icon-button class="list" (click)="changeView()"  fxShow="true" fxHide.lt-sm="true">
+          <mat-icon matTooltip="grid view">grid_view</mat-icon>
+        </button>
+        <button mat-icon-button  *ngIf="grid" (click)="changeView()" fxShow="true" fxHide.lt-sm="true">
+          <mat-icon class="viewicon">view_module</mat-icon>
+        </button>
+        <!---------------------------(settings)--------------------------------->
+        <button mat-icon-button class="settings"  [matMenuTriggerFor]="appMenu">
+          <mat-icon matTooltip="settings">settings</mat-icon>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item>settings</button>
+            <button mat-menu-item>Help</button>
+          </mat-menu>
+        </button>
+        <!--------------------------(google-apps)---------------------------->
+        <button mat-icon-button class="apps" [matMenuTriggerFor]="menu">
+          <mat-icon matTooltip="google apps">apps</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Help</button>
+            <button mat-menu-item>app-downloads</button>
+          </mat-menu>
+        </button>
+        <!---------------------------(ggogle-account)--------------------------->
+          <button mat-button  mat-icon-button fxShow="true" width="30" [matMenuTriggerFor]="googleMenu">
+            <mat-icon matTooltip="Google Account"> account_circle</mat-icon>
+            <mat-menu #googleMenu="matMenu">
+              <button mat-menu-item>Shaiksha S</button>
+              <button mat-menu-item>shaikshaiit@gmail.com</button> &nbsp;
+              &nbsp; &nbsp;
+              <button mat-icon-button color="primary" routerLink='/register'>Add Account</button>
+              <br> &nbsp;
+              &nbsp; &nbsp;
+              <button mat-icon-button color="primary" routerLink='/login'> SignOut</button><br>
+            </mat-menu>
+          </button>
+          &nbsp;
+          <button mat-icon-button color="verify" routerLink='/register'>Add Account</button>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+      <button mat-icon-button color="primary" routerLink='/login'> SignOut</button><br>
+     
+      </div>
+      </mat-toolbar-row>
+     </mat-toolbar>
+  </div>
+<!--------------------------------------Mattoolbar existed------------------------------------------------------- -->
+
+<div class="mainMenu" fxLayout="column" fxLayoutAlign="center start"> 
+  <mat-sidenav-container >
+     <mat-sidenav #snav mode="side" class="sidepage">
+       <!------------------------------(onNotes)-------------------------------->  
+        <div class="note">
+          <button mat-button class="notebutton" (click)=onNotes()>
+              <div class="icon">
+                <mat-icon>lightbulb_outline</mat-icon>
+              </div>
+                <span>Notes</span>
+          </button>
+          <br>
+          <br>
+          <!------------------------------(Remainders)--------------------------------> 
+        <button mat-button class="remindbutton">
+          <div class="icon">
+              <mat-icon>notifications</mat-icon>
+          </div>
+            <span>Reminders</span>
+          </button>
+      </div>
+      <!------------------------------(Labels)--------------------------------> 
+      <mat-divider></mat-divider>
+      <mat-label class="labelmat">LABELS</mat-label> 
+      <br><br>
+      <br>
+      <div class="label">
+        <button mat-button class="labelbutton" (click)=openDialogLabel()>
+          <div class="icon">
+            <mat-icon>edit</mat-icon>
+          </div>
+          <span >Edit labels</span>
+        </button>
+        <!-- ----------------------------(App-getLabel)------------------------------------ -->
+        <app-get-label></app-get-label> 
+      </div>
+      <br><br>
+      <br><br>
+      <mat-divider></mat-divider>
+      <!------------------------------(onArchieve)--------------------------------> 
+      <div class="note">
+        <button mat-button class="notebutton" (click)="onArchive()">
+          <div class="icon">
+              <mat-icon>archive</mat-icon>
+          </div>
+          <span>Archive</span>
+        </button>
+        <!------------------------------(onTrash)-------------------------------->         <br>
+        <br>
+        <button mat-button class="remindbutton" (click)="  onTrash()">
+          <div class="icon">
+              <mat-icon>delete</mat-icon>
+          </div>
+          <span>Trashed</span>
+        </button>   
+      </div>
+      <mat-divider></mat-divider>
+     </mat-sidenav>
+    <mat-sidenav-content >
+      <router-outlet ></router-outlet>
+        </mat-sidenav-content>
+  </mat-sidenav-container>
+  </div>
+</div> 
+
+  
+
