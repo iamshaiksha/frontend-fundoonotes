@@ -1,0 +1,42 @@
+<!-- <div class="updatenote">
+
+    <div>
+  
+      <form>
+        <div data-text="Take a Note" class="textarea1">
+          <input matInput placeholder="Edit Title" [formControl]="title"[(ngModel)]="data.title" >
+        </div>
+        <br> -->
+        <!------------------------------------------------------------------->
+        <!-- <div data-text="Take a Note" contenteditable="true" class="textarea1">
+          <input matInput placeholder="Edit Description" [formControl]="description"  [(ngModel)]="data.description" >
+        </div>
+        <br> -->
+        <!-------------------------------------------------------------------->
+        <!-- <div>
+          <button class=close mat-button (click)="onClose()" fxLayoutAlign="start center">
+            <mat-icon> close</mat-icon>
+            Close
+          </button>
+          <app-icon></app-icon>
+        </div>
+      </form>
+    </div>
+  </div> -->
+  <mat-card class="card" >
+    <form>
+     <div fxLayout="row"  fxLayoutAlign="center center">
+     <input matInput  type="text" placeholder="Edit Title"  class="input" [ngStyle]="{'background-color':data.color}" [formControl]="title" [(ngModel)]="data.title" >
+      </div>
+       <br><br>
+     <div fxLayout="row"  fxLayoutAlign="center center">
+      <input  matInput   type="text" class="input" placeholder="description"  [ngStyle]="{'background-color':data.color}" [formControl]="description" [(ngModel)]="data.description">
+      </div>
+     </form>
+     <br>
+    <br>
+     <app-icon></app-icon>  
+  </mat-card>
+   <div fxLayout="column" fxLayoutAlign="end end"  class="style">
+       <button class=close mat-button (click)="onClose()"> close</button>
+    </div>  

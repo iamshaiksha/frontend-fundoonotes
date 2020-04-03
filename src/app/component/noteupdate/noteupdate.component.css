@@ -1,0 +1,31 @@
+.card{
+    margin-top: -24px;
+    margin-left: -24px;
+    width: 300px;
+    margin-right: -24px;
+    margin-bottom: -45px;
+}
+.mat-dialog-container {
+    text-align: center;
+    box-sizing: border-box;
+    height: 185%;
+    margin: -23px;
+    padding-right: 273px;
+}
+.hello{
+    margin-top: 10px;
+    width: 252px;
+}
+.input{
+    border: rgb(23, 131, 226);
+    width: 495px;
+    margin-bottom: -24px;
+    margin-left: -8px;
+    outline: none;
+    border: none;
+}
+
+.style{
+    margin-left: 280px;
+    margin-bottom: -15px;
+}
