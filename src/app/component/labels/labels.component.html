@@ -1,0 +1,21 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<!-- 1 -->
+<!-- <mat-card> -->
+<!-- <div mat-dialog-content> -->
+  <!-- <p>What's your favorite animal?</p> -->
+  <!--2  -->
+<!--123445 -->
+<h1 >Edit Label</h1>
+<div fxLayout="column" fxLayoutAlign="center center" >
+  <!-----------------------(Edit label)----------------------------->
+    <mat-form-field >
+        <input  style="border: rgb(14, 230, 61);" matInput placeholder="Label" [formControl]=name  [(ngModel)]="label.name">
+      </mat-form-field>
+      <div>
+    <!----------------------(get-lbel)displaying all labels----------->
+      <app-get-label></app-get-label>
+    </div>
+  <div class="button">
+      <button  mat-raised-button color="primary"(click)="onSubmit()">done</button>
+    </div>
+</div>
