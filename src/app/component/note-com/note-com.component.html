@@ -1,0 +1,42 @@
+
+<div fxLayout="{{direction}} wap"  fxLayoutGap="10px"  flex="row" fxLayoutAlign="center center"  >
+   <div  fxLayout="{{direction}} wrap"  fxLayoutGap="10px" flex="row" fxLayoutAlign="center center">
+
+     <div *ngFor="let note of notes">
+  
+      <div  *ngIf="note.isArchieved==1 && note.isTrashed==1 && note.isPinned==0" > 
+         <span> 
+        <mat-card [ngStyle]="{'background-color':note.color}" class="card" >
+            <form>
+               <app-pin [noteInfo]=note></app-pin>
+                <div  (click)="onUpdate(note)">
+                  <div>{{note.title}}</div>
+                  <br>
+                  <div>{{note.description}}</div>
+                 </div> 
+                 <br> 
+               <app-addlabel [labelInfo]=note></app-addlabel>  
+               <!-- <div class=show fxLayout="row" fxLayoutAlign="center center">
+                  <br>
+                   <app-icon [noteInfo]=note></app-icon> 
+               </div>  -->
+               <address>
+                  <div class="button">
+                    <button mat-icon-button  >
+                       <mat-icon class=color> 
+                           <!-- <img   src="assets/images/unpin-image.png" > -->
+                       </mat-icon>   
+                    </button>
+                 </div>
+                      <div class="iconBackborder">
+                      <app-icon [noteInfo]=note></app-icon>
+                      </div>
+                     </address>
+            </form> 
+         </mat-card>
+         
+         </span>
+       </div> 
+   </div>
+</div>
+
