@@ -1,0 +1,89 @@
+<!-- <div>
+    <div class="noteclass">
+        <mat-card  click="onOpen()" *ngIf="!open">
+            <input  placeholder="Take a Note" [formControl]="description">
+            <div fxLayout="row" style="margin-top:10%" fxLayoutAlign="end center">  -->
+<!-------------------------------------------->
+<!-- <button mat-icon-button class="tools">
+                <mat-icon matTooltip="New List">check_box</mat-icon>
+                </button> -->
+<!------------------------------------------->
+<!-- <button mat-icon-button>
+                    <mat-icon matTooltip="Brush">brush</mat-icon>
+                    </button> -->
+<!------------------------------------------->
+<!-- <button mat-icon-button>
+                    <mat-icon matTooltip="New note with image">image</mat-icon>
+                    </button>
+            </div>
+        </mat-card >
+            <mat-card *ngIf="open">
+                <div data-text="Title" contenteditable="true" class="textarea1">
+                    <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="note.title">
+                </div>
+                <br>
+                <br>
+                    <div data-text="Description" contenteditable="inherit" class="textarea1">
+                        <input matInput placeholder="Description" [formControl]="description" [(ngModel)]="note.description">
+                    </div>
+                <br>
+                <app-icon></app-icon>
+                <div>
+                    <button class="close" (click)="onClose()" mat-button fxLayoutAlign="center center">Close
+                    </button>
+                </div>
+        </mat-card>
+    </div>
+</div> -->
+
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card (click)="onOpen()" *ngIf="!open" class="matcard">
+        <!-------------------------------(popup note)---------------------------------->
+        <textarea matInput class="popup" placeholder="Take a Note..." [formControl]="description"> </textarea>
+        <div style="margin-right: 112px;" fxLayout="row" fxLayoutAlign="center center">
+            <button mat-icon-button style="padding-left: 40px;">
+                <mat-icon matTooltip="New List">check_box</mat-icon>
+            </button>
+            <button mat-icon-button style="margin-right: -58px;">
+                <mat-icon matTooltip="brush">brush</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon matTooltip="image">image</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+        <!-- -------------------------------------------((submatcard))------------------------------------------- -->
+    <mat-card *ngIf="open" class="subcard1">
+        <div data-text="Take a Note" contenteditable="true" class="textarea1" fxLayout="row" fxLayoutAlign="center start">
+            <!-- <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="note.title"> -->
+            <textarea id="title" [formControl]="title" [(ngModel)]="note.title" matInput type="text" class="input" placeholder="Title"></textarea>
+        </div>
+        <br>
+        <div data-text="Take a Note" contenteditable="true" class="textarea1" fxLayout="row" fxLayoutAlign="center start">
+            <!-- <input matInput placeholder="Take a Note" [formControl]="description" [(ngModel)]="note.description"> -->
+            <textarea id="description" [formControl]="description" [(ngModel)]="note.description" matInput type="text" class="input" placeholder="description"></textarea>
+        </div>
+        <app-icon></app-icon>
+        <!-- <div  style="margin-right: 112px;" fxLayout="row" fxLayoutAlign="center center">
+            <button mat-icon-button class="archive">
+            <mat-icon matTooltip="New List">add_alert</mat-icon>
+            </button>
+            <button mat-icon-button class="personAdd">
+            <mat-icon matTooltip="New List">person_add</mat-icon>
+            </button>
+            <button mat-icon-button class="colorImg">
+            <mat-icon matTooltip="New List">color_lens</mat-icon>
+            </button>
+            <button mat-icon-button class="gallery">
+                <mat-icon matTooltip="New List">image</mat-icon>
+            </button>
+          <button mat-icon-button class="archivePin">
+            <mat-icon matTooltip="New List">archive</mat-icon>
+          </button>          
+        </div> -->
+        <button mat-icon-button (click)="onSubmit()" style="margin-top: -30px;">Close
+        </button>
+    </mat-card>
+</div>
+<app-note-com></app-note-com>
+<!-- <router-outlet></router-outlet> -->
