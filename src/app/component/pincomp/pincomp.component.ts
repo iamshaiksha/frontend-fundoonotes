@@ -80,4 +80,30 @@ export class PincompComponent implements OnInit {
 
     )
   }
+
+  unpin(note:any){
+    console.log("pin")
+   
+    this.noteService.deletepinRequest("isunPin?noteId="+note.noteId,"").subscribe(
+      (Response:any)=>{
+        if(Response.statusCode===200){
+          this.data.changeMessage("unpin")
+          console.log(Response)
+          this.snackbar.open(
+            "Note unPin","undo",
+            {duration:2500}
+          )
+        }
+        else{
+          this.snackbar.open(
+            "Note Pin Unsuccessfull","undo",
+            {duration:2500}
+          )
+        }
+      }
+    )
+ }
+  
 }
+  
+
