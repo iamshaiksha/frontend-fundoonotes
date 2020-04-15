@@ -9,6 +9,8 @@ import { NoteComponent } from './component/note/note.component';
 // import { EditlabelComponent } from './component/editlabel/editlabel.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ArchieveComponent } from './component/archieve/archieve.component';
+import { SearchnotesComponent } from './component/searchnotes/searchnotes.component';
+import { CollaboratorComponent } from './component/collaborator/collaborator.component';
 
 
 const routes: Routes = [
@@ -57,7 +59,15 @@ const routes: Routes = [
       path:"archive",
       component:ArchieveComponent
     },
-    
+    {
+      path:"searchnotes",
+      component:SearchnotesComponent
+    },
+    {
+      path:"collab",
+      component:CollaboratorComponent
+    }
+
     
     ]
   }
