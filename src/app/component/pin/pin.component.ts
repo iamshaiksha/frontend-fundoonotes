@@ -36,12 +36,12 @@ export class PinComponent implements OnInit {
     }
   
     pin(){
-            console.log("pin")
+         console.log("pin")
       this.toggle=true;
       this.noteService.deletepinRequest("isPin?noteId="+this.noteInfo.noteId,"").subscribe(
         (Response:any)=>{
           if(Response.statusCode===200){
-            this.dataService.changeMessage('pin')
+            this.dataService.changeMessage('pinned')
             console.log(Response)
             this.snackbar.open(
               "Note Pin","undo",
