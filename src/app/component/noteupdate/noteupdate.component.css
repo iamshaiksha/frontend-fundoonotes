@@ -1,13 +1,14 @@
 .card{
-    margin-top: -24px;
-    margin-left: -24px;
-    width: 300px;
-    margin-right: -24px;
-    margin-bottom: -45px;
+    margin-top: -22px;
+    margin-left: -25px;
+    width: 340px;
+    margin-right: -25px;
+    margin-bottom: -47px;
+    border-radius: 2mm;
 }
 .mat-dialog-container {
     text-align: center;
-    box-sizing: border-box;
+    box-sizing: content-box;
     height: 185%;
     margin: -23px;
     padding-right: 273px;
@@ -17,9 +18,9 @@
     width: 252px;
 }
 .input{
-    border: rgb(23, 131, 226);
-    width: 495px;
-    margin-bottom: -24px;
+    border: rgb(233, 238, 241);
+    width: 500px;
+    margin-bottom: -22px;
     margin-left: -8px;
     outline: none;
     border: none;
