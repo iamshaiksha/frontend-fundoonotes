@@ -21,19 +21,28 @@ message:string;
   constructor( private snackbar:MatSnackBar,private noteService:Noteservice,
     private route:ActivatedRoute,private router:Router,private formBuilder:FormBuilder,@Inject(MAT_DIALOG_DATA) public data: any) 
     {
-      this.note=data;
+    
     }
 
   ngOnInit(): void 
   {
-    this.updateNoteDto.title=this.data.title
-    this.updateNoteDto.description=this.data.description
+    // console.log("update checking title")
+    // console.log(this.title.value);
+    // this.updateNoteDto.title=this.data.title
+    // this.updateNoteDto.description=this.data.description
+    // this.updateNoteDto.noteId=this.data.noteId
+    // console.log( this.updateNoteDto.title)
+    // console.log(this.updateNoteDto.description)
+    // console.log(this.updateNoteDto.noteId)
+  }
+  onClose(){
+    console.log("update checking title")
+    this.updateNoteDto.title=this.title.value
+    this.updateNoteDto.description=this.description.value
     this.updateNoteDto.noteId=this.data.noteId
     console.log( this.updateNoteDto.title)
     console.log(this.updateNoteDto.description)
     console.log(this.updateNoteDto.noteId)
-  }
-  onClose(){
     console.log(this.data);
     console.log("######update entered");
     console.log(this.updateNoteDto);
