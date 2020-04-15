@@ -64,9 +64,9 @@
   width: 40px;
 }
 .searchBar{
-  border: 0.5px solid rgb(23, 112, 50);
+  border: 0.5px solid rgb(199, 245, 115);
   border-radius: 20px;
-  width: 600px;
+  width: 700px;
   margin-left:8%;
   outline: none;
   border-color: 1px rgb(51, 184, 46);
@@ -98,15 +98,17 @@
 }
 .setting{
   margin-left: auto;
+  /* scroll-padding-block-end: 10px; */
 }
 .apps{
+  margin-top: 25px;
   margin-left: 15%;
 }
 .viewicon
 {
   /* margin-left: -15px; */
   margin-bottom: 8px;
-  margin-right: 12px;
+  margin-right: 20px;
   /* margin-top: -30px; */
 }
 
@@ -162,4 +164,45 @@
   margin-top:5%;
   margin-left:9%;
 }
+.systemIcon{
+  margin-left: 40px;
+  margin-top: 0px;
+}
+::ng-deep .custom{
+  width: 300px;
+  background-color: white;
+}
+.usernameStyle
+{
+    margin-top:5px;
+    font-family: sans-serif; 
+    font-size: 20px;
+    font-weight: bold;
+}
+.image{
+  height: 40px;
+  width: 40px;
+}
+.imageicon{
+  height: 42px;
+  width: 40px;
+ border-radius: 30px;
+}
+.profileicon{
+  margin-top: -1px;
+  height: 48px;
+  width: 48px;
+ border-radius: 15px;
+}
 
+.emailStyle{
+    font-family: sans-serif; 
+    font-size: 15px;
+    color: rgb(138, 138, 138);
+}
+.profileButton{
+
+  background-color: orange;
+  color: white;
+  font-size: 25px    
+}
