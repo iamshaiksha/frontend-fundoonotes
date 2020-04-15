@@ -46,21 +46,46 @@ export class AddlabelComponent implements OnInit {
         console.log("#########")
         console.log(this.labelInfo);
         this.message = message, this.getalllabels()
+        // this.message=message,this.getNotes()
       }
     )
   }
+  // getNotes()
+  // {
+  //   this.noteService.getRequest("users/" + localStorage.getItem("token")).subscribe(
+  //     (response: any) => {
+  //       // response.forEach(shaik => {
+  //       //   console.log("------------------shaik="+shaik);
+  //       //   this.notes=shaik;
+
+  //       // });
+  //       console.log("notes in remainder checking " + response)
+  //       // this.notes = response;
+  //       console.log("remainder--->")
+  //       console.log(response)
+  //       response.forEach(element => {
+  //         console.log(element);
+  //         console.log(element.reminder);
+  //         this.reminder=element.reminder;
+  //       });
+  //       // console.log(response.Object.reminder);
+  //       console.log("" +"Getting notes by userid"+ "")
+  //       // console.log(this.notes)
+  //     }
+  //   )
+  // }
+
+
   getalllabels() {
-    // console.log("1)===")
-    // this.labelservice.getRequest("/getLabelsByUserId/"+localStorage.getItem("token")).subscribe(
-    //       (Response:any)=>{
-    //         this.label=Response;
-    //         console.log(this.label)
-    //       }
-    // )
-    console.log("1)===")
+    console.log("get all labels--->labelnote/noteId"+this.labelInfo.noteId)
     this.noteService.getRequest("labelnote/" + this.labelInfo.noteId).subscribe(
       (Response: any) => {
         console.log("****************")
+        console.log(Response.obj.reminder);
+        this.reminder=Response.obj.reminder;
+        console.log("Remainder checking--->"+Response.obj.reminder);
+       
+        // this.reminder=Response.Object.reminder;
         console.log(Response.obj.labelList)
         this.label = Response.obj.labelList;
         // this.label=Response;
@@ -92,4 +117,29 @@ export class AddlabelComponent implements OnInit {
       }
     )
   }
+  noteId:any
+  reminder: String;
+  onDeleteRem() {
+    
+    this.noteId= this.labelInfo.noteTd;
+  
+    console.log(this.labelInfo.noteId)
+    this.noteService.deleteRemRequest("removeRemainder?noteId=" + this.labelInfo.noteId,"")
+    // this.noteService.deleteRemRequest("removeRemainder/"+localStorage.getItem("token"),this.noteId) 
+    .subscribe(
+        (Response: any) => {
+    
+          if (Response!= null) {
+            this.dataservice.changeMessage("remainder delted")
+            
+            console.log(Response);
+            this.snackbar.open("reminder delted succesfuly", "undo", { duration: 2500 })
+          }
+         
+        })
+      
+  }
+
+
+
 }
