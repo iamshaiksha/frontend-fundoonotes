@@ -67,13 +67,17 @@ export class LoginComponent implements OnInit {
     console.log(this.login);
     this.token = localStorage.getItem("token");
     this.httpservice.postRequest("login", this.login).subscribe((response: any) => {
+      let n=localStorage.getItem("userName")
+      console.log("userName--------->"+n);
       if (response.data != null) {
         console.log(response);
         localStorage.setItem("token", response.data);
         localStorage.setItem("email", response.emailId);
-        this.snackBar.open(
+        localStorage.setItem("name",response.name)
+        console.log("----------->");
+               this.snackBar.open(
           "Login Successfull", "undo",
-          { duration: 2500000 }
+          { duration: 2000 }
         );
         /**
          * After successfully login navigating router to dashboard component
