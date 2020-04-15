@@ -6,7 +6,9 @@
          <mat-card [ngStyle]="{'background-color':note.color}" class="cards" >
             <form>
                <!-- ------------(App-pin)------------ -->
+               <!-- <div class="icons">
                <app-pin [noteInfo]=note></app-pin>
+               </div> -->
                <div class="notearea" >
                   <div>
                      {{note.title}}
@@ -20,7 +22,7 @@
                <app-addlabel [labelInfo]=note></app-addlabel>
                <div class=show>
                <!--------------(App-icons)------------ ----->
-                  <app-icon [noteInfo]=note></app-icon>
+                  <!-- <app-icon [noteInfo]=note></app-icon> -->
                </div>
             </form>
          </mat-card>
