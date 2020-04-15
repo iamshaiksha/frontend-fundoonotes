@@ -12,3 +12,11 @@
     margin-top: 16px;
     
 }
+.example-input-wrapper
+{
+height: 20px;
+width: 40px;
+}
+.alert{
+margin-top: 2px;
+}
