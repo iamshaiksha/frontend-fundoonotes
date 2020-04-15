@@ -49,7 +49,7 @@ export class GetLabelComponent implements OnInit {
   getalllabels() {
     console.log("###################")
     console.log("before send to labelservice")
-    this.labelservice.getRequest("/getLabelsByUserId/" + localStorage.getItem("token")).subscribe(
+    this.labelservice.getRequest("/getLabelsByUserId/"+localStorage.getItem("token")).subscribe(
       (Response: any) => 
       {
         this.label = Response;
