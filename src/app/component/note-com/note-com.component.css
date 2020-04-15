@@ -1,5 +1,5 @@
 .card{
-    margin-top: 50px;
+    margin-top: 42px;
     margin-left: 7px;
     width:225px;
     border-radius: 14px;
@@ -16,7 +16,7 @@
     height:10px;
 }
 .iconBackborder{   
-    margin-top: 150px;
+    margin-top: 140px;
     margin-left: -5px;
 }
 .button{
@@ -24,12 +24,14 @@
     margin-top: -179px;
   }
   address{
-    visibility: hidden;
+    visibility:inherit;
     display: block;
   }
 span :hover+address
 {
  visibility: visible;
 }
- 
+.pin{
+    margin-left: 181px;
+} 
 
