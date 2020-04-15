@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Noteservice } from 'src/app/Service/note.service';
 import { MatDialog } from '@angular/material/dialog';
+import { DataService } from 'src/app/Service/data.service';
 
 @Component({
   selector: 'app-note',
@@ -34,7 +35,9 @@ export class NoteComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    public dailogopen: MatDialog) {
+    public dailogopen: MatDialog,
+    public data:DataService
+    ) {
 
   }
   ngOnInit(): void 
@@ -51,6 +54,7 @@ export class NoteComponent implements OnInit {
     this.noteService.postRequest("create?" + localStorage.getItem("token"), this.note).subscribe(
         (Response: any) => {
           if (Response !== null) {
+            this.data.changeMessage("notecreated")
             console.log("## Response gettingfrom note class class ##")
             this.snackbar.open("Note Created Successfully", "undo",{ duration: 3200 }
             )
