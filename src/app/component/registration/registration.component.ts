@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/User';
 import { UserService } from 'src/app/Service/user.service';
 import { Validators, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +29,7 @@ user:User=new User("","",0,"");
   * 
   * @param service 
   */
-  constructor(public service:UserService) { }
+  constructor(public service:UserService, private snackBar:MatSnackBar, private router:Router ) { }
 
   ngOnInit(): void 
   {
@@ -75,8 +77,25 @@ user:User=new User("","",0,"");
   public registerNow()
   {
     console.log(this.user)
-    let resp= this.service.doRegistration(this.user);
-    resp.subscribe((data)=>this.message=data);
+     this.service.doRegistration(this.user).subscribe((response:any)=>{ 
+       if(response!=null)
+      {
+       
+        console.log("response checking")
+        console.log(response)
+        console.log("response="+response)
+        this.snackBar.open("Registration successfull", "", {duration:2000, verticalPosition:"top"});
+        this.router.navigateByUrl("/login");
+      }
+      else
+      {
+        this.snackBar.open("registration failed", "", {duration:2000, verticalPosition:"top"});
+      }})
+
+    // resp.subscribe((data)=>
+   
+    // this.message=data);
+    // console.log(this.email);
   }
 }
 
