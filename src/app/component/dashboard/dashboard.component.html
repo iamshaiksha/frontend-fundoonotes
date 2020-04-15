@@ -1,19 +1,21 @@
 <!-- <mat-card >
     <div fxLayout="row" fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="end end">
       <span>Welcome to dashboard</span> -->
-    <!-- </div>
+<!-- </div>
     <div>
       </div> -->
-    <!-- <mat-drawer-container class="example-container">
+<!-- <mat-drawer-container class="example-container">
       <mat-drawer mode="side" opened>Drawer content</mat-drawer>
       <mat-drawer-content>Main content</mat-drawer-content>
     </mat-drawer-container> -->
-  <!-- </mat-card> -->
+<!-- </mat-card> -->
 <div class="backcontainer">
-  <div  fxLayout="row" fxLayoutAlign="start center">
-      <mat-toolbar>
-        <!-- ----------------(MainMenu)-------------------------- -->
-      <mat-toolbar-row> 
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <mat-toolbar>
+      <!-- <img="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1503023345310-bd7c1de61c7d%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26w%3D1000%26q%3D80&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fhuman&tbnid=02pOGe6MlAbm-M&vet=12ahUKEwjn3vPAnNvoAhVR9jgGHZHHDvAQMygEegUIARCaAg..i&docid=ZaycYywhXLmIVM&w=1000&h=1250&q=images&ved=2ahUKEwjn3vPAnNvoAhVR9jgGHZHHDvAQMygEegUIARCaAg">  -->
+      <!-- ----------------(MainMenu)-------------------------- -->
+      <mat-toolbar-row>
+       
         <button mat-icon-button (click)="snav.toggle()">
           <mat-icon matTooltip="Main menu">menu</mat-icon>
         </button>
@@ -22,52 +24,61 @@
         </span>
         <div>&nbsp;&nbsp;
           <img style=" margin-left: 3px;" src="../../../assets/keep.png">
-          </div>
-          &nbsp;&nbsp;&nbsp;
-          <div class="sansserif">
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="sansserif">
           <h1 text>Keep</h1>
-          </div>
+        </div>
         <!-----------------------(searchbar)-------------------------->
         <div class="searchBar" fxLayout="row" fxLayoutAlign="center center">
-        <button mat-icon-button class="search-icon">
-          <mat-icon>search</mat-icon>
-        </button>
-        <!-- ------------------------(refresh)-------------------------- -->
-        <input class="searchInput" placeholder="Search" >
-        <button mat-icon-button class="cancel">
-          <mat-icon matTooltip="refresh">clear</mat-icon>
-        </button>
-      </div>
-      <!------------------------(refresh-icon)------------------------------->
-      <div >
-        <button mat-icon-button class="refresh">
-          <mat-icon matTooltip="refresh">refresh</mat-icon>
-        </button>
-        <!------------------------(grid view-icon)------------------------------->
-        <button mat-icon-button class="list" (click)="changeView()"  fxShow="true" fxHide.lt-sm="true">
-          <mat-icon matTooltip="grid view">grid_view</mat-icon>
-        </button>
-        <button mat-icon-button  *ngIf="grid" (click)="changeView()" fxShow="true" fxHide.lt-sm="true">
-          <mat-icon class="viewicon">view_module</mat-icon>
-        </button>
-        <!---------------------------(settings)--------------------------------->
-        <button mat-icon-button class="settings"  [matMenuTriggerFor]="appMenu">
-          <mat-icon matTooltip="settings">settings</mat-icon>
-          <mat-menu #appMenu="matMenu">
-            <button mat-menu-item>settings</button>
-            <button mat-menu-item>Help</button>
-          </mat-menu>
-        </button>
-        <!--------------------------(google-apps)---------------------------->
-        <button mat-icon-button class="apps" [matMenuTriggerFor]="menu">
-          <mat-icon matTooltip="google apps">apps</mat-icon>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Help</button>
-            <button mat-menu-item>app-downloads</button>
-          </mat-menu>
-        </button>
-        <!---------------------------(ggogle-account)--------------------------->
-          <button mat-button  mat-icon-button fxShow="true" width="30" [matMenuTriggerFor]="googleMenu">
+          <button mat-icon-button class="search-icon">
+            <mat-icon (click)="searching()">search</mat-icon>
+          </button>
+          <input class="searchInput" placeholder="Search" (click)="searching()" [formControl]="myInput" autocomplete="off">
+           <!-- ------------------------(refresh)-------------------------- -->
+          <button mat-icon-button class="cancel">
+            <mat-icon matTooltip="clear">clear</mat-icon>
+          </button>
+        </div>
+        <!------------------------(refresh-icon)------------------------------->
+        <div>
+          <button mat-icon-button class="refresh" (click)="refresh()">
+            <mat-icon matTooltip="refresh">refresh</mat-icon>
+          </button>
+          &nbsp;
+          &nbsp;
+          <!------------------------(grid view-icon)------------------------------->
+          <button mat-icon-button class="list" (click)="changeView()" fxShow="true" fxHide.lt-sm="true">
+            <mat-icon matTooltip="grid view">grid_view</mat-icon>
+          </button>
+          <button mat-icon-button class="viewicon" *ngIf="grid" (click)="changeView()" fxShow="true"
+            fxHide.lt-sm="true">
+            <mat-icon>view_module</mat-icon>
+          </button>
+          &nbsp;
+          &nbsp;
+          <!---------------------------(settings)--------------------------------->
+          <button mat-icon-button class="settings" [matMenuTriggerFor]="appMenu">
+            <mat-icon matTooltip="settings">settings</mat-icon>
+            <mat-menu #appMenu="matMenu">
+              <button mat-menu-item>settings</button>
+              <button mat-menu-item>Help</button>
+            </mat-menu>
+          </button>
+          <!--------------------------(google-apps)---------------------------->
+          <button mat-icon-button class="apps" [matMenuTriggerFor]="menu">
+            <mat-icon matTooltip="google apps">apps</mat-icon>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Help</button>
+              <button mat-menu-item>app-downloads</button>
+            </mat-menu>
+          </button>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+         
+          <!---------------------------(google-account)--------------------------->
+          <!-- <button mat-button mat-icon-button fxShow="true" width="30" [matMenuTriggerFor]="googleMenu">
             <mat-icon matTooltip="Google Account"> account_circle</mat-icon>
             <mat-menu #googleMenu="matMenu">
               <button mat-menu-item>Shaiksha S</button>
@@ -78,86 +89,116 @@
               &nbsp; &nbsp;
               <button mat-icon-button color="primary" routerLink='/login'> SignOut</button><br>
             </mat-menu>
-          </button>
-          &nbsp;
-          <button mat-icon-button color="verify" routerLink='/register'>Add Account</button>
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-          &nbsp;
-      <button mat-icon-button color="primary" routerLink='/login'> SignOut</button><br>
-     
-      </div>
-      </mat-toolbar-row>
-     </mat-toolbar>
-  </div>
-<!--------------------------------------Mattoolbar existed------------------------------------------------------- -->
+          </button> -->
+          <!-- <div class="systemIcon" fxLayoutAlign="end end"> -->
+   
+            <!-- <button mat-icon-button style="margin-left: 20px"><mat-icon>notifications</mat-icon></button> -->
+        
+            <button mat-icon-button class="profileButton" fxShow="true" width="30"  [matMenuTriggerFor]="profileMenu" >
+              <!-- <img src="https://iamshaiksha.s3.ap-south-1.amazonaws.com/army.jpg"> -->
+              <!-- <mat-icon matTooltip="Google Account"> account_circle</mat-icon> -->
+              
+              <img class="imageicon"src={{image}}>
+            </button>
+        
+            <mat-menu #profileMenu="matMenu" class="custom">
+              <div  fxLayout="column"  fxLayoutAlign="center center" style="overflow: hidden;width:100%" matMenuItem>        
+                 
+                  <button mat-icon-button (click)="openImageDialog()" class="profileButton" style="zoom:2;margin:5px" >
+                    <img class="profileicon" style=" height: 44px; width:40px;" src={{image}}>
+                   <!-- <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1503023345310-bd7c1de61c7d%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26w%3D1000%26q%3D80&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fhuman&tbnid=02pOGe6MlAbm-M&vet=12ahUKEwjn3vPAnNvoAhVR9jgGHZHHDvAQMygEegUIARCaAg..i&docid=ZaycYywhXLmIVM&w=1000&h=1250&q=images&ved=2ahUKEwjn3vPAnNvoAhVR9jgGHZHHDvAQMygEegUIARCaAg"> -->
+                  </button>
+                 
+                  
+                <div fxLayout="column" fxLayoutAlign="start center" style="padding-right: 30px">
+                  <span class="usernameStyle">Shaiksha S</span>
+                  <span class="emailStyle">{{userName}}</span> 
+                  <br>
+                  <button mat-button  >Manage your Google Account </button>
+                  <button mat-raised-button (click)="register()" style="background-color: rgb(169, 190, 194); margin-top: 25px">
+                    <mat-icon>person_add</mat-icon> &nbsp; &nbsp;Add another account</button>
+                   <button mat-stroked-button (click)="logout()" style="background-color: rgb(204, 243, 96); margin-top: 25px">Log Out</button>
+                </div>
+            </div>
+            </mat-menu>
+          <!-- </div> -->
+          <!-- *************************************************** -->
 
-<div class="mainMenu" fxLayout="column" fxLayoutAlign="center start"> 
-  <mat-sidenav-container >
-     <mat-sidenav #snav mode="side" class="sidepage">
-       <!------------------------------(onNotes)-------------------------------->  
+          &nbsp;
+          <!-- <button mat-icon-button color="verify" routerLink='/register'>Add Account</button> -->
+          &nbsp;
+          &nbsp;
+          <!-- &nbsp;
+          &nbsp;
+          &nbsp; -->
+          <!-- <button mat-icon-button color="primary" routerLink='/login'> SignOut</button><br> -->
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <!--------------------------------------Mattoolbar existed------------------------------------------------------- -->
+
+  <div class="mainMenu" fxLayout="column" fxLayoutAlign="center start">
+    <mat-sidenav-container>
+      <mat-sidenav #snav mode="side" class="sidepage">
+        <!------------------------------(onNotes)-------------------------------->
         <div class="note">
           <button mat-button class="notebutton" (click)=onNotes()>
-              <div class="icon">
-                <mat-icon>lightbulb_outline</mat-icon>
-              </div>
-                <span>Notes</span>
+            <div class="icon">
+              <mat-icon>lightbulb_outline</mat-icon>
+            </div>
+            <span>Notes</span>
           </button>
           <br>
           <br>
-          <!------------------------------(Remainders)--------------------------------> 
-        <button mat-button class="remindbutton">
-          <div class="icon">
+          <!------------------------------(Remainders)-------------------------------->
+          <button mat-button class="remindbutton">
+            <div class="icon">
               <mat-icon>notifications</mat-icon>
-          </div>
+            </div>
             <span>Reminders</span>
           </button>
-      </div>
-      <!------------------------------(Labels)--------------------------------> 
-      <mat-divider></mat-divider>
-      <mat-label class="labelmat">LABELS</mat-label> 
-      <br><br>
-      <br>
-      <div class="label">
-        <button mat-button class="labelbutton" (click)=openDialogLabel()>
-          <div class="icon">
-            <mat-icon>edit</mat-icon>
-          </div>
-          <span >Edit labels</span>
-        </button>
-        <!-- ----------------------------(App-getLabel)------------------------------------ -->
-        <app-get-label></app-get-label> 
-      </div>
-      <br><br>
-      <br><br>
-      <mat-divider></mat-divider>
-      <!------------------------------(onArchieve)--------------------------------> 
-      <div class="note">
-        <button mat-button class="notebutton" (click)="onArchive()">
-          <div class="icon">
-              <mat-icon>archive</mat-icon>
-          </div>
-          <span>Archive</span>
-        </button>
-        <!------------------------------(onTrash)-------------------------------->         <br>
+        </div>
+        <!------------------------------(Labels)-------------------------------->
+        <mat-divider></mat-divider>
+        <mat-label class="labelmat">LABELS</mat-label>
+        <br><br>
         <br>
-        <button mat-button class="remindbutton" (click)="  onTrash()">
-          <div class="icon">
+        <div class="label">
+          <button mat-button class="labelbutton" (click)=openDialogLabel()>
+            <div class="icon">
+              <mat-icon>edit</mat-icon>
+            </div>
+            <span>Edit labels</span>
+          </button>
+          <!-- ----------------------------(App-getLabel)------------------------------------ -->
+          <app-get-label></app-get-label>
+        </div>
+        <br><br>
+        <br><br>
+        <mat-divider></mat-divider>
+        <!------------------------------(onArchieve)-------------------------------->
+        <div class="note">
+          <button mat-button class="notebutton" (click)="onArchive()">
+            <div class="icon">
+              <mat-icon>archive</mat-icon>
+            </div>
+            <span>Archive</span>
+          </button>
+          <!------------------------------(onTrash)--------------------------------> <br>
+          <br>
+          <button mat-button class="remindbutton" (click)="  onTrash()">
+            <div class="icon">
               <mat-icon>delete</mat-icon>
-          </div>
-          <span>Trashed</span>
-        </button>   
-      </div>
-      <mat-divider></mat-divider>
-     </mat-sidenav>
-    <mat-sidenav-content >
-      <router-outlet ></router-outlet>
-        </mat-sidenav-content>
-  </mat-sidenav-container>
+            </div>
+            <span>Trashed</span>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
-</div> 
-
-  
-
+</div>
