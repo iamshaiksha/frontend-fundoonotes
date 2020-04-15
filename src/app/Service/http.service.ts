@@ -32,6 +32,8 @@ export class HttpService {
    * @param login 
    */
   public postRequest(url: any, login: Login): any {
+    localStorage.setItem("userName", login.email+"");
+
     let name = this.http.post(this.baseurl + "Login", login);
     console.log("###")
     console.log("name-->" + name.forEach(x => console.log(x)))
