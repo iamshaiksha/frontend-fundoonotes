@@ -14,6 +14,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { LabelsComponent } from '../labels/labels.component';
 import { User } from 'src/app/model/User';
 import { ViewService } from 'src/app/Service/view.service';
+import { DataService } from 'src/app/Service/data.service';
+import { ImageDialogComponentComponent } from '../image-dialog-component/image-dialog-component.component';
+import { ImageService } from 'src/app/Service/image.service';
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
+import { BehaviorSubject } from 'rxjs';
+import { Noteservice } from 'src/app/Service/note.service';
 
 
 
@@ -28,7 +34,11 @@ export class DashboardComponent implements OnInit {
   login: Login;
   appName: string;
   token: String;
-  user: User;
+  private datauser: User;
+  email: string;
+  name: string;
+  userName: any;
+
   /**
    * 
    * @param snackBar 
@@ -39,20 +49,55 @@ export class DashboardComponent implements OnInit {
    * @param dialog 
    */
   constructor(
+    private data: DataService,
     private snackBar: MatSnackBar,
     private httpservice: HttpService,
     public formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog,
-    public viewservice:ViewService
+    public viewservice: ViewService,
+    private noteservice: Noteservice,
+    private imageService: ImageService,
+    private userService: UserService) {
+    this.userService.getUser(this.name).subscribe((result) => {
+      this.datauser = result;
 
-  ) { }
+      //  this.email = this.datauser.email;
+      console.log("profile getting single user");
+      localStorage.getItem('url')
+      console.log(this.datauser);
+      console.log(this.datauser.name);
+      this.datauser.name
+      this.userName = localStorage.getItem("userName");
+    });
+    {
+
+    }
+  }
+
   /**
    * getting token from local storage while loading the component
    */
+  image: String
   ngOnInit() {
+    
     this.token = localStorage.getItem("token");
+    this.name = localStorage.getItem("name");
+    this.image = localStorage.getItem('uurl')
+    console.log(this.image)
+    // this.getUseInfo();
+  }
+  myInput = new FormControl();
+  private obtainNotes = new BehaviorSubject([]);
+  currentMessage = this.obtainNotes.asObservable();
+
+  // getUseInfo()
+  // {
+  //   this.userService.getUserInformation("ui"+localStorage.getItem("token"));
+  // }
+  refresh() {
+    this.data.changeMessage("refresh")
   }
   /**
    * when ever click on edit label dailogbox will open and navigae to labelscomponent
@@ -62,6 +107,28 @@ export class DashboardComponent implements OnInit {
       width: '250px',
     });
   }
+  openImageDialog(): void {
+    const dialogRef = this.dialog.open(ImageDialogComponentComponent, {
+      width: '800px',
+    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log("result-->"+result)
+    //   this.imageService.upload(result).subscribe(
+    //     data => console.log(data)
+    //   )
+    // });
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl("/login");
+  }
+  register() {
+    localStorage.clear();
+    this.router.navigateByUrl("/register");
+  }
+
+
+
   /**
    * when ever click on @Notes button it will navigate to notes component 
    */
@@ -74,7 +141,7 @@ export class DashboardComponent implements OnInit {
   //   let dialogRef = this.dialog.open(NoteComponent)
   // }
 
-  
+
   /**
    * when ever click on @Archive button it will navigate to Archive component 
    */
@@ -91,6 +158,9 @@ export class DashboardComponent implements OnInit {
   }
   list: boolean = true;
   grid: boolean = false;
+  /**
+   * changeView Can be display notes by rows or columns
+   */
   changeView() {
     if (this.list) {
       this.grid = true;
@@ -125,5 +195,21 @@ export class DashboardComponent implements OnInit {
         }
       });
   }
-
+  searching() {
+console.log(this.myInput.value);
+this.noteservice.getSearchRequest("search?title="+this.myInput.value).subscribe
+((response:any)=>{
+  this.obtainNotes.next(response)
+  console.log(response)
+  this.router.navigate(['dashboard/searchnotes'])
+})
+  }
 }
+
+// console.log(this.myInput.value)
+//       this.appName = "Search";
+//       this.noteservice.getRequest("searchTitle?title="+this.myInput.value).subscribe(
+//         (response:any)=>{this.obtainNotes.next(response)
+//           console.log(response)
+        // this.router.navigate(['dashboard/search'])
+  
