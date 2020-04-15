@@ -2,7 +2,7 @@ import { environment } from 'src/environments/environment';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Input } from '@angular/core';
-import {Observable} from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +25,14 @@ export class Noteservice {
   public postRequest(url: any, data: any): any {
     return this.http.post(this.baseurl + url, data, { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
+
+ public deleteRemRequest(url: any, data: any)
+ {
+  return this.http.delete(this.baseurl + url,{headers:new HttpHeaders().set('token',localStorage.getItem('token')) });
+  // return this.http.delete(this.baseurl + url, data) ;
+ }
+
+
   /**
    * 
    * @param url 
@@ -114,4 +122,9 @@ export class Noteservice {
   public putupdateRequest(url: any,data:any): any {
     return this.http.put(this.baseurl + url,data);
   }
+  public getSearchRequest(url: any)
+  {
+    return this.http.get(this.baseurl + url);
+  }
+
 }
