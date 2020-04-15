@@ -1,0 +1,98 @@
+<!-- <br>
+ <div fxLayout="row" fxLayoutAlign="center center"  class="1">
+   
+ <div  fxLayout="{{direction}} wrap" fxLayoutGap="5px" fxLayout.xs="row" fxLayoutAlign="center center"> 
+   
+  <div *ngFor="let noteone of data">
+
+   
+      <span>
+        
+       <mat-card [ngStyle]="{'background-color':noteone.colour}" class="matcard2">
+              <br>
+
+            <div  (click)="onUpdate(noteone)" >
+             <form>
+                   <div>
+                   {{noteone.title}}
+                   </div>
+                   <br>
+                   <div>
+                   {{noteone.description}}
+                   </div>
+                 
+                   <br>
+                 <app-label-note [labelInfo]=noteone></app-label-note> 
+               
+             </form> 
+            </div> 
+            
+          </mat-card>
+       
+      <address>
+            <div class="button" fxLayout="column" fxLayoutAlign="start end">
+              <button mat-icon-button (click)="pin(note)"  >
+                 <mat-icon class=color> 
+                     <img   src="assets/images/unpin-image.png" >
+                 </mat-icon>   
+              </button>
+            </div>
+            
+            <div class="iconBackborder">
+                <app-icon [noteInfo]=noteone></app-icon>
+             </div>
+        </address>
+   </span>
+    
+ </div>  
+ </div>
+   -->
+   <app-pincomp></app-pincomp>
+   <div fxLayout="{{direction}} wrap"  fxLayoutGap="5px"  flex="row" fxLayoutAlign="center center"  >
+      <!-- <div  fxLayout="{{direction}} wrap"  fxLayoutGap="8px" flex="row" fxLayoutAlign="center center"> -->
+        <!--  -->
+        <div *ngFor="let note of searchnotes">
+     
+         <div  > 
+            <span> 
+           <mat-card [ngStyle]="{'background-color':note.color}" class="card" >
+            <div >
+               <!--  -->
+               <button  class=pin mat-icon-button  (click)="pin(note)" [ngStyle]="{'background-color':note.color}">
+                  <img  src="../../../assets/unpin.png">
+               </button>
+             </div>
+               <form>
+                  <!-- <app-pin [noteInfo]=note></app-pin> -->
+                   <div  (click)="onUpdate(note)">
+                     <div>{{note.title}}</div>
+                     <br>
+                     <div>{{note.description}}</div>
+                    </div> 
+                    <br> 
+                  <app-addlabel [labelInfo]=note></app-addlabel>  
+                  <!-- <div class=show fxLayout="row" fxLayoutAlign="center center">
+                     <br>
+                      <app-icon [noteInfo]=note></app-icon> 
+                  </div>  -->
+                  <address>
+                     <div class="button">
+                       <button mat-icon-button  >
+                          <mat-icon class=color> 
+                              <!-- <img   src="assets/images/unpin-image.png" > -->
+                          </mat-icon>   
+                       </button>
+                    </div>
+                         <div class="iconBackborder">
+                         <app-icon [noteInfo]=note></app-icon>
+                         </div>
+                        </address>
+               </form> 
+            </mat-card>
+            
+            </span>
+          </div> 
+      <!-- </div> -->
+   </div>
+   
+   
