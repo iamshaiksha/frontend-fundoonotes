@@ -1,13 +1,27 @@
 <div class=card fxLayout=layout-wrap>
   <!---------------------(Reaminder)-------------------------->
-  <button mat-icon-button>
-    <mat-icon matTooltip="RemindMe">add_alert</mat-icon>
+  <button class="alert" mat-icon-button [matMenuTriggerFor]="menu4" >
+    <mat-icon  matTooltip="RemindMe">add_alert</mat-icon>
+    <br>
   </button>
-  <!---------------------(Collaborator)-------------------------->
+   <div> 
+    <div>
+      <mat-menu #menu4="matMenu">
+        <span style="margin-left: 10px">Reminder:</span>
+        
+      <label class="example-input-wrapper">
+        <input placeholder="Date Time:" [(ngModel)]="dateTime" [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+        <owl-date-time #dt></owl-date-time>
+        <button  color="primary" (click)="datePicker()">Save</button>
+    </label>
+      </mat-menu>
+    </div> 
+  </div>
+  <!---------------------(Collaborator)----------------------------->
   <button class=trash mat-icon-button>
-    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+    <mat-icon matTooltip="Collaborator" (click)="onCollaboraotr()">person_add</mat-icon>
   </button>
-  <!---------------------(Colorlens)-------------------------->
+  <!---------------------(Colorlens)---------------------------------->
   <button mat-icon-button [matMenuTriggerFor]="menu1">
     <mat-icon matTooltip="color_lens">color_lens</mat-icon>
   </button>
