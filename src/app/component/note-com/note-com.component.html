@@ -1,14 +1,21 @@
 
-<div fxLayout="{{direction}} wap"  fxLayoutGap="10px"  flex="row" fxLayoutAlign="center center"  >
-   <div  fxLayout="{{direction}} wrap"  fxLayoutGap="10px" flex="row" fxLayoutAlign="center center">
-
+ <app-pincomp></app-pincomp>
+<div fxLayout="{{direction}} wrap"  fxLayoutGap="5px"  flex="row" fxLayoutAlign="center center"  >
+   <!-- <div  fxLayout="{{direction}} wrap"  fxLayoutGap="8px" flex="row" fxLayoutAlign="center center"> -->
+     <!--  -->
      <div *ngFor="let note of notes">
   
-      <div  *ngIf="note.isArchieved==1 && note.isTrashed==1 && note.isPinned==0" > 
+      <div  *ngIf="note.isArchieved==1 && note.isTrashed==1 && note.isPinned==1" > 
          <span> 
         <mat-card [ngStyle]="{'background-color':note.color}" class="card" >
+         <div >
+            <!--  -->
+            <button  class=pin mat-icon-button  (click)="pin(note)" [ngStyle]="{'background-color':note.color}">
+               <img  src="../../../assets/unpin.png">
+            </button>
+          </div>
             <form>
-               <app-pin [noteInfo]=note></app-pin>
+               <!-- <app-pin [noteInfo]=note></app-pin> -->
                 <div  (click)="onUpdate(note)">
                   <div>{{note.title}}</div>
                   <br>
@@ -37,6 +44,6 @@
          
          </span>
        </div> 
-   </div>
+   <!-- </div> -->
 </div>
 
