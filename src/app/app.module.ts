@@ -48,7 +48,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-// import {MatNativeDateModule} from '@angular/material/datepicker';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -78,6 +77,16 @@ import { TrashComponent } from './component/trash/trash.component';
 import { LabelsComponent } from './component/labels/labels.component';
 import { AddlabelComponent } from './component/addlabel/addlabel.component';
 import { PincompComponent } from './component/pincomp/pincomp.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { ImageDialogComponentComponent } from './component/image-dialog-component/image-dialog-component.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { SearchnotesComponent } from './component/searchnotes/searchnotes.component';
+import { CollaboratorComponent } from './component/collaborator/collaborator.component';
+
+
+// import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+// import { CustomDatePipePipe } from './component/custom-date-pipe.pipe';
 
 
 
@@ -96,20 +105,23 @@ import { PincompComponent } from './component/pincomp/pincomp.component';
     NoteComComponent,
     NoteupdateComponent,
     PinComponent,
-    // EditlabelComponent,
     GetLabelComponent,
     ArchieveComponent,
     TrashComponent,
     LabelsComponent,
     AddlabelComponent,
     PincompComponent,
-    
-    
+    ReminderComponent,
+    ImageDialogComponentComponent,
+    SearchnotesComponent,
+    CollaboratorComponent,
+    // CustomDatePipePipe,
+   
   ],
   imports: [
-    A11yModule,PortalModule,ScrollingModule,CdkStepperModule,CdkTableModule,CdkTreeModule,DragDropModule,
+ A11yModule,PortalModule,ScrollingModule,CdkStepperModule,CdkTableModule,CdkTreeModule,DragDropModule,
 MatBadgeModule,MatAutocompleteModule,MatBottomSheetModule,MatButtonToggleModule,MatCheckboxModule,MatChipsModule
-,MatDatepickerModule,MatExpansionModule,MatDialogModule,MatGridListModule,MatPaginatorModule,MatProgressBarModule,
+,MatExpansionModule,MatDialogModule,MatGridListModule,MatPaginatorModule,MatProgressBarModule,
 MatProgressSpinnerModule,MatRadioModule,MatRippleModule,MatSelectModule,MatSliderModule,MatSortModule,
 MatStepperModule,MatTableModule,MatTabsModule,MatTreeModule,MatSlideToggleModule,MatTooltipModule,
   
@@ -133,6 +145,12 @@ MatStepperModule,MatTableModule,MatTabsModule,MatTreeModule,MatSlideToggleModule
     MatButtonModule,
     MatMenuModule, 
     FlexLayoutModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
+    ImageCropperModule,
+   
+     
+    
   ],
   
   providers: [HttpService,UserService,Noteservice],
